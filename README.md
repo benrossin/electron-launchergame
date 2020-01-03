@@ -1,4 +1,4 @@
-# l
+# Electron Launcher Game
 
 ## Project setup
 ```
