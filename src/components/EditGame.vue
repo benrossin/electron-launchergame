@@ -51,15 +51,17 @@ export default {
       this.gameToEdit.img = event.target.files[0];
     },
     editGame() {
-      (async () => {
+
+      if(this.gameToEdit.img != this.game.img){
+        (async () => {
         await moveFile(
           this.gameToEdit.img.path,
           `public/assets/img/${this.gameToEdit.img.name}`
         );
         console.log("its ok");
-      })();
-
-      this.gameToEdit.img = `assets/img/${this.gameToEdit.img.name}`;
+        })();
+        this.gameToEdit.img = `assets/img/${this.gameToEdit.img.name}`;
+      }
 
       this.editGameStore(this.gameToEdit);
       
