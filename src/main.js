@@ -1,7 +1,10 @@
 import Vue from 'vue'
 import App from './App.vue'
 import router from './router'
-import store from './store'
+import store from './store/GameStore'
+import VueAgile from 'vue-agile'
+
+Vue.use(VueAgile)
 
 Vue.config.productionTip = false
 

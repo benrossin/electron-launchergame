@@ -1,32 +1,177 @@
 <template>
-  <div id="app">
-    <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
-    </div>
-    <router-view/>
+  <div id="app" class="padtb-50 container">
+    <navbar />
+    <router-view />
   </div>
 </template>
 
+<script>
+import Navbar from "@/components/Navbar";
+import store from "@/store/GameStore";
+import Vuex from "vuex";
+
+export default {
+  store: store,
+  name: "app",
+  components: {
+    Navbar
+  },
+  methods: {
+    ...Vuex.mapActions({
+      getGamesStore: "getGames"
+    })
+  },
+  mounted() {
+    this.getGamesStore();
+  }
+};
+</script>
+
 <style>
-#app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
+html {
+  --black: rgba(17.5, 17.5, 17.5);
+  --grey-dark: rgba(50, 50, 50);
+  --grey-light: #838383;
+  --white: #f4f4f4;
+  --light-blue: #3595f1;
+  --dark-blue: #3579f1;
+  --red: #e74c3c;
 }
 
-#nav {
-  padding: 30px;
+body {
+  margin: 0;
+  padding: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
+    Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  background-color: var(--black);
+  color: var(--grey-light);
+  width: 100%;
+  height: 100%;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 20px;
 }
 
-#nav a {
-  font-weight: bold;
-  color: #2c3e50;
+* {
+  box-sizing: border-box;
 }
 
-#nav a.router-link-exact-active {
-  color: #42b983;
+h1,
+h2,
+h3,
+p {
+  margin: 0;
 }
+
+a {
+  text-decoration: none;
+}
+
+a:-webkit-any-link {
+  color: var(--grey-light);
+}
+
+.router-link-exact-active:-webkit-any-link {
+  color: var(--white);
+}
+
+li {
+  list-style-type: none;
+}
+
+ul {
+  padding: 0;
+  margin: 0;
+}
+
+.img-fluid {
+  width: 100%;
+  height: auto;
+  vertical-align: middle;
+}
+
+.container {
+  max-width: 1330px;
+  margin: 0 auto;
+}
+
+input:focus {
+  outline: none;
+}
+
+.padtb-50 {
+  padding: 50px 0;
+}
+
+.btn {
+  text-transform: uppercase;
+  color: var(--white);
+  font-size: 12px;
+  transition: 0.2s background-color;
+  border: none;
+  cursor: pointer;
+  outline: 0;
+}
+
+.btn-confirm{
+  background-color: var(--light-blue);
+  padding: 10px 20px;
+}
+
+.btn-cancel{
+  color: var(--grey-light);
+  background-color: transparent;
+  margin-right: 15px;
+  transition: 0.25s color;
+}
+
+.btn-cancel:hover{
+  color: var(--white);
+}
+
+.form-modal {
+  margin-top: 50px;
+}
+
+.form-content {
+  display: flex;
+  flex-direction: column;
+}
+
+.form-input,
+.form-buttons {
+  margin-top: 15px;
+}
+
+.form-buttons {
+  margin-top: 50px;
+  float: right;
+}
+
+.form-input {
+  display: flex;
+  align-items: baseline;
+}
+
+input {
+  border: none;
+  font-family: "Roboto", sans-serif;
+  font-size: 14px;
+  caret-color: var(--white);
+  color: var(--white);
+  background-color: var(--grey-dark);
+  padding: 10px;
+  height: 40px;
+}
+
+.pad-layout{
+  padding-left: 15px;
+  padding-right: 15px;
+}
+
+.btn-game {
+  padding: 22.5px;
+  background-color: var(--grey-dark);
+}
+
 </style>
