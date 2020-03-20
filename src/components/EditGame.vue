@@ -1,14 +1,14 @@
 <template>
   <div>
-    <h1>Edit Game</h1>
+    <h1>Editer</h1>
     <form class="form-modal" @submit.prevent="editGame()">
       <div class="form-content">
         <div class="form-input">
-          <label for="name">Name :</label>
+          <label for="name">Nom :</label>
           <input type="text" id="name" name="name" v-model="gameToEdit.name" />
         </div>
         <div class="form-input">
-          <label for="path">Path :</label>
+          <label for="path">Jeu :</label>
           <input type="file" id="path" name="path" @change="chooseFile"/>
         </div>
         <div class="form-input">

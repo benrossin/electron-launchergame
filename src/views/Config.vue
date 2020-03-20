@@ -3,11 +3,11 @@
     <table>
       <thead>
         <tr>
-          <td>Name</td>
-          <td>Path</td>
+          <td>Nom</td>
+          <td>Jeu</td>
           <td>Image</td>
-          <td class="form-right">Edit</td>
-          <td class="form-right">Delete</td>
+          <td class="form-right">Editer</td>
+          <td class="form-right">Supprimer</td>
         </tr>
       </thead>
       <tbody>
