@@ -107,9 +107,12 @@ export default {
   computed: {
     ...Vuex.mapGetters(["games"]),
     filteredGames() {
-      let gamesSearch = _.filter(this.games, game => {
-        return game.name.toLowerCase().includes(this.search.text.toLowerCase());
-      });
+      let gamesSearch = this.games;
+      if (this.search.text.trim() !== "") {
+        gamesSearch = _.filter(gamesSearch, game => {
+          return game.name.toLowerCase().includes(this.search.text.toLowerCase());
+        });
+      }
       switch (this.search.filter) {
         case "alpha":
           return _.orderBy(gamesSearch, "name");
